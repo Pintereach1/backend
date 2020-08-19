@@ -17,7 +17,7 @@ router.get("/users", (req, res) => {
       });
     });
 });
-router.delete("/:id", validateUserId, (req, res) => {
+router.delete("/users/:id", validateUserId, (req, res) => {
   Users.remove(req.user.id)
     .then((user) => {
       res.status(200).json(user);

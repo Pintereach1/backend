@@ -10,41 +10,32 @@ module.exports = {
 };
 
 function find() {
-  return db("articles")
-    .select(
-      "id",
-      "title",
-      "description",
-      "link",
-      "user_id as user_id",
-      "rank_id as rank_id"
-    )
-    .orderBy("id");
+  return db("categories").select("id", "category_name").orderBy("id");
 }
 
 function findBy(filter) {
-  return db("articles").where(filter).orderBy("id");
+  return db("categories").where(filter).orderBy("id");
 }
 
-function add(article) {
-  return db("articles")
-    .insert(article)
+function add(category) {
+  return db("categories")
+    .insert(category)
     .then((ids) => {
       return findById(ids[0]);
     });
 }
 
 function findById(id) {
-  return db("articles").where({ id }).first();
+  return db("categories").where({ id }).first();
 }
 function update(id, changes) {
-  return db("articles")
+  return db("categories")
     .where({ id })
     .update(changes)
     .then((count) => (count > 0 ? findById(id) : null));
 }
 function remove(id) {
-  return db("articles")
+  return db("categories")
     .where("id", id)
     .del()
     .then((delRow) => (delRow > 0 ? id : null));

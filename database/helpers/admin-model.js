@@ -8,11 +8,10 @@ module.exports = {
   findUserArticles,
   update,
   remove,
-  findUserArticle,
 };
 
 function find() {
-  return db("users").select("id", "username", "password").orderBy("id");
+  return db("users").select("id", "username", "name", "email").orderBy("id");
 }
 
 function findBy(filter) {
@@ -20,37 +19,23 @@ function findBy(filter) {
 }
 
 function findUserArticles(id) {
-  return db("users as u")
-    .join("articles as a", "u.id", "a.user_id")
-    .join("categories as c", "c.id", "a.category_id")
-    .select(
-      "a.id as article_id",
-      "u.id as user_id",
-      "a.title",
-      "a.description",
-      "a.link",
-      "c.category_name",
-      "a.category_id",
-      "a.rank_id"
-    )
-    .where("a.user_id", id);
-}
-function findUserArticle(id, articleID) {
-  return db("users as u")
-    .join("articles as a", "u.id", "a.user_id")
-    .join("categories as c", "c.id", "a.category_id")
-    .select(
-      "a.id as article_id",
-      "u.id as user_id",
-      "a.title",
-      "a.description",
-      "a.link",
-      "c.category_name",
-      "a.category_id",
-      "a.rank_id"
-    )
-    .where("a.user_id", id)
-    .where("a.id", articleID);
+  return (
+    db("users as u")
+      .join("articles as a", "u.id", "a.user_id")
+      //.join("article_categories as ac", "a.id", "ac.article_id")
+      //.join("categories as c", "ac.category_id", "c.id")
+      .select(
+        // "u.id as user_id",
+        "a.title",
+        "a.description",
+        "a.link",
+        "a.source",
+        //   "c.category_name",
+        //   "ac.category_id",
+        "a.rank_id"
+      )
+      .where("a.user_id", id)
+  );
 }
 
 async function add(user) {

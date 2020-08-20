@@ -258,3 +258,81 @@ When successful will return status code of 200 (OK), and the a user article with
 ```
 
 </details>
+
+<details>
+<summary><b>POST - Post a new user article for a user with user role</b></summary>
+<br>
+Endpoint: BaseURL/api/users/:id/articles
+<br>
+<br>
+User access endpoint. Token required.
+<br>
+<br>
+Requires an object with a title, description, link, category_id, and rank_id:
+
+```
+{
+    "title": "The New Power Article",
+      "description": "How to Build Article created by user2",
+      "link": "https://www.nature.com/articles/s41586-020-2665-2",
+      "category_id": 3,
+
+      "rank_id": 4
+
+}
+```
+
+When successful will return status code of 201 (CREATED), and new article object :
+
+```
+{
+    "id": 7,
+    "title": "The New Power Article",
+    "description": "How to Build Article created by user2",
+    "link": "https://www.nature.com/articles/s41586-020-2665-2",
+    "rank_id": 4,
+    "user_id": 2,
+    "category_id": 3
+}
+```
+
+</details>
+
+<details>
+<summary><b>PUT - Update an article for a user with user role</b></summary>
+<br>
+Endpoint: BaseURL/api/articles/:id
+<br>
+<br>
+User access endpoint. Token required.
+<br>
+<br>
+Requires an object with fildes that will be updated:
+
+```
+{
+    "title": "The New Power Article updated by user2",
+      "description": "How to Build Article updated by user2",
+      "link": "https://www.nature.com/articles/s41586-020-2665-2",
+      "category_id": 2,
+
+      "rank_id": 1
+
+}
+```
+
+When successful will return status code of 200 (OK), and an updated article object :
+
+```
+{
+    "id": 7,
+    "title": "The New Power Article updated by user2",
+    "description": "How to Build Article updated by user2",
+    "link": "https://www.nature.com/articles/s41586-020-2665-2",
+    "rank_id": 1,
+    "user_id": 2,
+    "category_id": 2
+}
+```
+
+</details>

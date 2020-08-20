@@ -384,7 +384,7 @@ When successful will return status code of 200 (OK), and an updated article obje
 </details>
 
 <details>
-<summary><b>DELETE - Delete an article by article's id</b><br>
+<summary><b>DELETE - Delete an article by article's id for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/articles/:id</code>
 <br>
 </summary>
@@ -503,7 +503,7 @@ When successful will return status code of 200 (OK), and an updated category obj
 </details>
 
 <details>
-<summary><b>DELETE - Delete a category by category's id</b><br>
+<summary><b>DELETE - Delete a category by category's id for user with admin role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/admin/categories/:id</code>
 <br>
 </summary>

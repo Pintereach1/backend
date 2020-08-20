@@ -118,11 +118,3 @@ function remove(id) {
     .del()
     .then((delRow) => (delRow > 0 ? id : null));
 }
-//async function remove(id) {
-// const totalDeleted = await db("users as u")
-//   .join("articles as a", "u.id", "a.user_id")
-//   //.join("article_categories as ac", "a.id", "ac.article_id")
-//   .where("u.id", id)
-//   .del();
-// return totalDeleted;
-// const deletedArticle_Categories = await db("article_categories as ac").join("articles as a", "" ).where("user_id", id).del();

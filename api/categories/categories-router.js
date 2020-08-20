@@ -29,48 +29,7 @@ router.post("/", validateCategory, (req, res) => {
       });
     });
 });
-//-----------------------PUT-------------------------
-// router.put(
-//   "/:id",
-//   checkRole(1),
-//   validateCategoryId,
-//   validateCategory,
-//   (req, res) => {
-//     const { id } = req.params;
-//     Categories.update(req.category.id, req.body)
-//       .then((category) => {
-//         if (category) {
-//           res.status(200).json(category);
-//         } else {
-//           req
-//             .status(500)
-//             .json({ message: "An error occured during getting category" });
-//         }
-//       })
 
-//       .catch((error) => {
-//         res.statusMessage = "Error updating the article";
-//         console.log(error);
-//         res.status(500).json({
-//           message: "Error updating the article",
-//         });
-//       });
-//   }
-// );
-// //-----------------------DELETE-------------------------
-// router.delete("/:id", checkRole(1), validateCategoryId, (req, res) => {
-//   Categories.remove(req.category.id)
-//     .then((category) => {
-//       res.status(200).json(category);
-//     })
-
-//     .catch((error) => {
-//       console.log(error);
-//       res.status(500).json({
-//         message: "Error removing the category",
-//       });
-//     });
-// });
 //--------------custom middlewares------------------
 function validateCategoryId(req, res, next) {
   const { id } = req.params;

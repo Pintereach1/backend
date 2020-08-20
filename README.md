@@ -422,3 +422,54 @@ When successful will return status code of 201 (CREATED), and new category objec
 ```
 
 </details>
+
+<details>
+<summary><b>PUT - Update a category for a user with admin role</b></summary>
+<br>
+Endpoint: BaseURL/api/admin/categories/:id
+<br>
+<br>
+Admin access restricted endpoint. Token required.
+<br>
+<br>
+Requires an object with fildes that will be updated:
+
+```
+{
+
+        "category_name": "Archaeology IIV"
+    }
+```
+
+When successful will return status code of 200 (OK), and an updated category object :
+
+```
+{
+    "id": 7,
+    "category_name": "Archaeology IIV"
+}
+```
+
+</details>
+
+<details>
+<summary><b>DELETE - Delete a category by category's id</b></summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/admin/categories/:id</code>
+<br>
+<br>
+Admin access restricted endpoint. Token required.
+<br>
+<br>
+No body required in the request. 
+<br>
+<br>
+When successful will return an HTTP status code of 200 (OK) and an id of the deleted category. Here is an example:
+
+```
+{
+    7
+}
+```
+
+</details>

@@ -14,7 +14,7 @@ Requires an object with a username, password, name, email - all string data type
 
 ```
 {
-	 "username": "aaron",
+	"username": "aaron",
     "password": "qwerty",
     "name": "Aaron",
     "email": "aaron@gmail.com",
@@ -182,10 +182,44 @@ When successful will return status code of 200 (OK), and the a user profile info
         "username": "user2",
         "name": "Jane Cimegra",
         "email": "jane@gmail.com",
-        "password": "qwerty",
         "role": 2
     }
 ]
+```
+
+</details>
+
+<details>
+<summary><b>PUT - Update a user profile for a user with user role</b></summary>
+<br>
+Endpoint: BaseURL/api/users/:id
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+Requires an object with fildes that will be updated:
+
+```
+{
+    "username": "user5",
+    "name": "Masha",
+    "email": "masha@gmail.com",
+    "role": 2
+
+}
+```
+
+When successful will return status code of 200 (OK), and an updated user object :
+
+```
+{
+    "id": 6,
+    "username": "user51",
+    "name": "Masha1",
+    "email": "mash1a@gmail.com",
+    "role": 2
+}
 ```
 
 </details>
@@ -310,8 +344,8 @@ Requires an object with fildes that will be updated:
 
 ```
 {
-    "title": "The New Power Article updated by user2",
-      "description": "How to Build Article updated by user2",
+    "title": "The New Power Article",
+      "description": "How to Build Article",
       "link": "https://www.nature.com/articles/s41586-020-2665-2",
       "category_id": 2,
 
@@ -460,7 +494,7 @@ When successful will return status code of 200 (OK), and an updated category obj
 Admin access restricted endpoint. Token required.
 <br>
 <br>
-No body required in the request. 
+No body required in the request. Category will be deleted if it is not exist in any articles.
 <br>
 <br>
 When successful will return an HTTP status code of 200 (OK) and an id of the deleted category. Here is an example:
@@ -469,6 +503,78 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 {
     7
 }
+```
+
+</details>
+
+<details>
+<summary><b>GET - Get a list of user articles sorted by rank for a user with user role</b></summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank</code>
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a list of articles, sorted by rank:
+
+```
+[
+    {
+        "rank": 1,
+        "user_id": 2,
+        "article_id": 4,
+        "title": "SARS-CoV-2 spike proteins",
+        "description": "Structures and distributions of SARS-CoV-2 spike proteins on intact virions",
+        "link": "https://www.nature.com/articles/s41586-020-2665-2",
+        "category_name": "Research",
+        "category_id": 1
+    },
+    {
+        "rank": 4,
+        "user_id": 2,
+        "article_id": 2,
+        "title": "Anticancer immune response",
+        "description": "Targeted glycan degradation potentiates the anticancer immune response in vivo",
+        "link": "https://www.nature.com/articles/s41589-020-0622-x",
+        "category_name": "Hypotheses",
+        "category_id": 2
+    }
+]
+```
+
+</details>
+
+<details>
+<summary><b>GET - Get a list of user articles  by specific rank for a user with user role</b>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank/:rankID</code>
+<br>
+</summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank/:rankID</code>
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a list of articles with specific rank:
+
+```
+[
+    {
+        "rank": 4,
+        "user_id": 2,
+        "article_id": 2,
+        "title": "Anticancer immune response",
+        "description": "Targeted glycan degradation potentiates the anticancer immune response in vivo",
+        "link": "https://www.nature.com/articles/s41589-020-0622-x",
+        "category_name": "Hypotheses",
+        "category_id": 2
+    }
+]
 ```
 
 </details>

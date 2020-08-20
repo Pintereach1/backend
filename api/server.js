@@ -23,7 +23,9 @@ server.use("/api/categories", authenticate, categoriesRouter);
 server.use("/api/articles", authenticate, checkRole(2), articlesRouter);
 
 server.get("/", (req, res) => {
-  res.status(200).send(`<h2>Welcome to the Lambda Pintereach Project API</h2>`);
+  res
+    .status(200)
+    .send(`<h2>Welcome to the Lambda Pintereach Project API!</h2>`);
 });
 
 module.exports = server;

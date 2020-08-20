@@ -7,6 +7,7 @@ module.exports = {
   findById,
   update,
   remove,
+  findByRankId,
 };
 
 function find() {
@@ -36,6 +37,9 @@ function add(article) {
 
 function findById(id) {
   return db("articles").where({ id }).first();
+}
+function findByRankId(id, rankID) {
+  return db("articles").where({ user_id: id }).where({ rank_id: rankID });
 }
 function update(id, changes) {
   return db("articles")

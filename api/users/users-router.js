@@ -5,11 +5,12 @@ const Articles = require("../../database/helpers/articles-model");
 const checkUser = require("../../auth/check-user-middleware.js");
 
 //----------------USER-------------------------
-//---------------GET-----------------------------
+//---------------GET USER-----------------------------
 router.get("/:id", checkUser(), validateUserId, (req, res) => {
-  Users.findBy({ id: req.decodedJwt.subject })
-    .then((users) => {
-      res.status(200).json(users);
+  // Users.findBy({ id: req.decodedJwt.subject })
+  Users.findById(req.decodedJwt.subject)
+    .then((user) => {
+      res.status(200).json(user);
     })
     .catch((error) => {
       console.log(error);
@@ -18,6 +19,28 @@ router.get("/:id", checkUser(), validateUserId, (req, res) => {
       });
     });
 });
+//---------------UPDATE USER-----------------------------
+router.put("/:id", checkUser(), validateUserId, (req, res) => {
+  Users.update(req.user.id, req.body)
+    .then((user) => {
+      if (user) {
+        res.status(200).json(user);
+      } else {
+        req
+          .status(500)
+          .json({ message: "An error occured during getting user" });
+      }
+    })
+
+    .catch((error) => {
+      res.statusMessage = "Error updating the user";
+      console.log(error);
+      res.status(500).json({
+        message: "Error updating the user",
+      });
+    });
+});
+//---------------GET ALL USER ARTICLES-----------------------------
 router.get("/:id/articles", checkUser(), validateUserId, (req, res) => {
   const { id } = req.params;
   //const {  sortby = "id"} = req.query;
@@ -33,6 +56,43 @@ router.get("/:id/articles", checkUser(), validateUserId, (req, res) => {
       });
     });
 });
+//---------------GET SORTED USER ARTICLES BY RANK-----------------------------
+router.get("/:id/articles/rank", checkUser(), validateUserId, (req, res) => {
+  const { id } = req.params;
+
+  Users.sortUserArticlesByRank(id)
+    .then((articles) => {
+      res.status(200).json(articles);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({
+        message: `Error retrieving the articles of the user with id=${req.decodedJwt.subject}`,
+      });
+    });
+});
+//---------------GET USER ARTICLES BY RANK-----------------------------
+router.get(
+  "/:id/articles/rank/:rankID",
+  checkUser(),
+  validateUserId,
+  validateRankId,
+  (req, res) => {
+    const { id, rankID } = req.params;
+
+    Users.getUserArticlesByRank(id, rankID)
+      .then((article) => {
+        res.status(200).json(article);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(500).json({
+          message: `Error retrieving the articles by rank of the user with id=${req.decodedJwt.subject}`,
+        });
+      });
+  }
+);
+//---------------GET SPECIFIC USER ARTICLE-----------------------------
 router.get(
   "/:id/articles/:articleID",
   checkUser(),
@@ -40,7 +100,6 @@ router.get(
   validateArticleId,
   (req, res) => {
     const { id, articleID } = req.params;
-    //const {  sortby = "id"} = req.query;
 
     Users.findUserArticle(id, articleID)
       .then((article) => {
@@ -54,7 +113,7 @@ router.get(
       });
   }
 );
-//-----------------------POST-------------------------
+//-----------------------POST NEW ARTICLE-------------------------
 router.post(
   "/:id/articles",
   checkUser(),
@@ -127,6 +186,38 @@ function validateArticle(req, res, next) {
     res.statusMessage = "missing article data";
     res.status(400).json({ message: "missing article data" });
   }
+}
+function validateUser(req, res, next) {
+  if (!isEmpty(req.body)) {
+    if (
+      !req.body.username ||
+      !req.body.name ||
+      !req.body.email ||
+      !req.body.role
+    ) {
+      res.statusMessage = "missing required fields";
+      res.status(400).json({ message: "missing required fields" });
+    } else {
+      next();
+    }
+  } else {
+    res.statusMessage = "missing user data";
+    res.status(400).json({ message: "missing user data" });
+  }
+}
+function validateRankId(req, res, next) {
+  const { id, rankID } = req.params;
+  Articles.findByRankId(id, rankID)
+    .then((articles) => {
+      if (articles.length !== 0) {
+        next();
+      } else {
+        res.status(400).json({ message: "invalid  rank id" });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ message: "failed", err });
+    });
 }
 function isEmpty(obj) {
   return Object.keys(obj).length === 0;

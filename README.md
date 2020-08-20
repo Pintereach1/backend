@@ -7,14 +7,18 @@
 As a researcher, it's difficult to keep track of articles you want to read later. Pintereach helps you research by enabling you to save and organize articles in to categories to read later.
 
 <details>
-<summary><b>POST - Register a new user</b></summary>
+<summary><b>POST - Register a new user</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/auth/register</code>
+<br>
+</summary>
+<br>
+<br>
 
-Endpoint: BaseURL/api/auth/register
 Requires an object with a username, password, name, email - all string data types, and role is 1 for admin, and 2 for user:
 
 ```
 {
-	 "username": "aaron",
+	"username": "aaron",
     "password": "qwerty",
     "name": "Aaron",
     "email": "aaron@gmail.com",
@@ -40,9 +44,10 @@ When successful will return status code of 201 (CREATED), the new user object an
 </details>
 
 <details>
-<summary><b>POST - Login a user</b></summary>
-<br>
+<summary><b>POST - Login a user</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/auth/login</code>
+<br>
+</summary>
 <br>
 <br>
 Requires an object with a username and password, both string data types:
@@ -66,9 +71,10 @@ When successful will return status code of 200 (OK), the new item object and a t
 </details>
 
 <details>
-<summary><b>GET - Get a list of users for a user with admin role</b></summary>
-<br>
+<summary><b>GET - Get a list of users for a user with admin role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/admin/users</code>
+<br>
+</summary>
 <br>
 <br>
 Admin access restricted endpoint. Token required.
@@ -115,9 +121,10 @@ When successful will return status code of 200 (OK), and the a list of users:
 </details>
 
 <details>
-<summary><b>GET - Get a list of all articles of all users for a user with user role</b></summary>
-<br>
+<summary><b>GET - Get a list of all articles of all users for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/articles</code>
+<br>
+</summary>
 <br>
 <br>
 User access endpoint. Token required.
@@ -164,9 +171,10 @@ When successful will return status code of 200 (OK), and the a list of articles:
 </details>
 
 <details>
-<summary><b>GET - Get a user profile information for a user with user role</b></summary>
-<br>
+<summary><b>GET - Get a user profile information for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id</code>
+<br>
+</summary>
 <br>
 <br>
 User access restricted endpoint. Token required.
@@ -182,7 +190,6 @@ When successful will return status code of 200 (OK), and the a user profile info
         "username": "user2",
         "name": "Jane Cimegra",
         "email": "jane@gmail.com",
-        "password": "qwerty",
         "role": 2
     }
 ]
@@ -191,9 +198,46 @@ When successful will return status code of 200 (OK), and the a user profile info
 </details>
 
 <details>
-<summary><b>GET - Get a list of a user articles for a user with user role</b></summary>
+<summary><b>PUT - Update a user profile for a user with user role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id</code>
 <br>
+</summary>
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+Requires an object with fildes that will be updated:
+
+```
+{
+    "username": "user5",
+    "name": "Masha",
+    "email": "masha@gmail.com",
+    "role": 2
+
+}
+```
+
+When successful will return status code of 200 (OK), and an updated user object :
+
+```
+{
+    "id": 6,
+    "username": "user51",
+    "name": "Masha1",
+    "email": "mash1a@gmail.com",
+    "role": 2
+}
+```
+
+</details>
+
+<details>
+<summary><b>GET - Get a list of a user articles for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles</code>
+<br>
+</summary>
 <br>
 <br>
 User access restricted endpoint. Token required.
@@ -230,9 +274,10 @@ When successful will return status code of 200 (OK), and the a list of articles 
 </details>
 
 <details>
-<summary><b>GET - Get a user article with specific id for a user with user role</b></summary>
-<br>
+<summary><b>GET - Get a user article with specific id for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/:articleID</code>
+<br>
+</summary>
 <br>
 <br>
 User access restricted endpoint. Token required.
@@ -259,9 +304,10 @@ When successful will return status code of 200 (OK), and the a user article with
 </details>
 
 <details>
-<summary><b>POST - Post a new user article for a user with user role</b></summary>
+<summary><b>POST - Post a new user article for a user with user role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles</code>
 <br>
-Endpoint: BaseURL/api/users/:id/articles
+</summary>
 <br>
 <br>
 User access restricted endpoint. Token required.
@@ -298,9 +344,10 @@ When successful will return status code of 201 (CREATED), and new article object
 </details>
 
 <details>
-<summary><b>PUT - Update an article for a user with user role</b></summary>
+<summary><b>PUT - Update an article for a user with user role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/articles/:id</code>
 <br>
-Endpoint: BaseURL/api/articles/:id
+</summary>
 <br>
 <br>
 User access restricted endpoint. Token required.
@@ -310,8 +357,8 @@ Requires an object with fildes that will be updated:
 
 ```
 {
-    "title": "The New Power Article updated by user2",
-      "description": "How to Build Article updated by user2",
+    "title": "The New Power Article",
+      "description": "How to Build Article",
       "link": "https://www.nature.com/articles/s41586-020-2665-2",
       "category_id": 2,
 
@@ -337,9 +384,10 @@ When successful will return status code of 200 (OK), and an updated article obje
 </details>
 
 <details>
-<summary><b>DELETE - Delete an article by article's id</b></summary>
-<br>
+<summary><b>DELETE - Delete an article by article's id for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/articles/:id</code>
+<br>
+</summary>
 <br>
 <br>
 User access restricted endpoint. Token required.
@@ -359,9 +407,10 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 </details>
 
 <details>
-<summary><b>GET - Get a list of categories  users with user role</b></summary>
-<br>
+<summary><b>GET - Get a list of categories  users with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/categories</code>
+<br>
+</summary>
 <br>
 <br>
 User access endpoint. Token required.
@@ -394,9 +443,10 @@ When successful will return status code of 200 (OK), and the a list of categorie
 </details>
 
 <details>
-<summary><b>POST - Post a new category for a user with user role</b></summary>
+<summary><b>POST - Post a new category for a user with user role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/categories</code>
 <br>
-Endpoint: BaseURL/api/categories
+</summary>
 <br>
 <br>
 User access restricted endpoint. Token required.
@@ -423,9 +473,10 @@ When successful will return status code of 201 (CREATED), and new category objec
 </details>
 
 <details>
-<summary><b>PUT - Update a category for a user with admin role</b></summary>
+<summary><b>PUT - Update a category for a user with admin role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/admin/categories/:id</code>
 <br>
-Endpoint: BaseURL/api/admin/categories/:id
+</summary>
 <br>
 <br>
 Admin access restricted endpoint. Token required.
@@ -452,15 +503,16 @@ When successful will return status code of 200 (OK), and an updated category obj
 </details>
 
 <details>
-<summary><b>DELETE - Delete a category by category's id</b></summary>
-<br>
+<summary><b>DELETE - Delete a category by category's id for user with admin role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/admin/categories/:id</code>
+<br>
+</summary>
 <br>
 <br>
 Admin access restricted endpoint. Token required.
 <br>
 <br>
-No body required in the request. 
+No body required in the request. Category will be deleted if it is not exist in any articles.
 <br>
 <br>
 When successful will return an HTTP status code of 200 (OK) and an id of the deleted category. Here is an example:
@@ -473,9 +525,79 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 
 </details>
 
+<details>
+<summary><b>GET - Get a list of user articles sorted by rank for a user with user role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank</code>
+<br>
+</summary>
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a list of articles, sorted by rank:
+
+```
+[
+    {
+        "rank": 1,
+        "user_id": 2,
+        "article_id": 4,
+        "title": "SARS-CoV-2 spike proteins",
+        "description": "Structures and distributions of SARS-CoV-2 spike proteins on intact virions",
+        "link": "https://www.nature.com/articles/s41586-020-2665-2",
+        "category_name": "Research",
+        "category_id": 1
+    },
+    {
+        "rank": 4,
+        "user_id": 2,
+        "article_id": 2,
+        "title": "Anticancer immune response",
+        "description": "Targeted glycan degradation potentiates the anticancer immune response in vivo",
+        "link": "https://www.nature.com/articles/s41589-020-0622-x",
+        "category_name": "Hypotheses",
+        "category_id": 2
+    }
+]
+```
+
+</details>
+
+<details>
+<summary><b>GET - Get a list of user articles  by specific rank for a user with user role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank/:rankID</code>
+<br>
+</summary>
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a list of articles with specific rank:
+
+```
+[
+    {
+        "rank": 4,
+        "user_id": 2,
+        "article_id": 2,
+        "title": "Anticancer immune response",
+        "description": "Targeted glycan degradation potentiates the anticancer immune response in vivo",
+        "link": "https://www.nature.com/articles/s41589-020-0622-x",
+        "category_name": "Hypotheses",
+        "category_id": 2
+    }
+]
+```
+
+</details>
+
 ### Table Entities
 
-Role Data
+#### Role Data
 
 | attribute | data type | required                |
 | --------- | --------- | ----------------------- |
@@ -483,7 +605,7 @@ Role Data
 | role      | integer   | Yes, and must be unique |
 |           |           | 2 - by default to user  |
 
-User Data
+#### User Data
 
 | attribute | data type | required                |
 | --------- | --------- | ----------------------- |
@@ -494,21 +616,21 @@ User Data
 | name      | string    | Yes                     |
 | role      | integer   | No, default to user     |
 
-Rank Data
+#### Rank Data
 
 | attribute | data type | required                |
 | --------- | --------- | ----------------------- |
 | id        | integer   | auto-assigns            |
 | rank      | integer   | Yes, and must be unique |
 
-Category Data
+#### Category Data
 
 | attribute     | data type | required                |
 | ------------- | --------- | ----------------------- |
 | id            | integer   | auto-assigns            |
 | category_name | string    | Yes, and must be unique |
 
-Article Data
+#### Article Data
 
 | attribute   | data type | required                |
 | ----------- | --------- | ----------------------- |

@@ -9,6 +9,8 @@ module.exports = {
   update,
   remove,
   findUserArticle,
+  sortUserArticlesByRank,
+  getUserArticlesByRank,
 };
 
 function find() {
@@ -34,6 +36,41 @@ function findUserArticles(id) {
       "a.rank_id"
     )
     .where("a.user_id", id);
+}
+function sortUserArticlesByRank(id) {
+  return db("users as u")
+    .join("articles as a", "u.id", "a.user_id")
+    .join("categories as c", "c.id", "a.category_id")
+    .select(
+      "a.rank_id as rank",
+      "u.id as user_id",
+      "a.id as article_id",
+
+      "a.title",
+      "a.description",
+      "a.link",
+      "c.category_name",
+      "a.category_id"
+    )
+    .where("a.user_id", id)
+    .orderBy("rank_id");
+}
+function getUserArticlesByRank(id, rankID) {
+  return db("users as u")
+    .join("articles as a", "u.id", "a.user_id")
+    .join("categories as c", "c.id", "a.category_id")
+    .select(
+      "a.rank_id as rank",
+      "u.id as user_id",
+      "a.id as article_id",
+      "a.title",
+      "a.description",
+      "a.link",
+      "c.category_name",
+      "a.category_id"
+    )
+    .where("a.user_id", id)
+    .where("a.rank_id", rankID);
 }
 function findUserArticle(id, articleID) {
   return db("users as u")
@@ -81,11 +118,3 @@ function remove(id) {
     .del()
     .then((delRow) => (delRow > 0 ? id : null));
 }
-//async function remove(id) {
-// const totalDeleted = await db("users as u")
-//   .join("articles as a", "u.id", "a.user_id")
-//   //.join("article_categories as ac", "a.id", "ac.article_id")
-//   .where("u.id", id)
-//   .del();
-// return totalDeleted;
-// const deletedArticle_Categories = await db("article_categories as ac").join("articles as a", "" ).where("user_id", id).del();

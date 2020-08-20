@@ -1,12 +1,6 @@
 const router = require("express").Router();
-// const {
-//   validateUserId,
-//   validateArticleId,
-//   validateArticle,
-// } = require("../custom-middleware/custom-middleware.js");
 const Articles = require("../../database/helpers/articles-model.js");
 const checkUser = require("../../auth/check-user-middleware.js");
-//const checkRole = require("../../auth/check-role-middleware.js");
 
 //----------------ARTICLES-------------------------
 //---------------GET-----------------------------
@@ -25,9 +19,9 @@ router.get("/", (req, res) => {
 //-----------------------PUT-------------------------
 router.put(
   "/:id",
-  //checkUser(),
+
   validateArticleId,
-  // validateArticle,
+
   (req, res) => {
     const { id } = req.params;
     Articles.update(req.article.id, req.body)
@@ -96,7 +90,6 @@ function validateArticle(req, res, next) {
       req.article = {
         ...req.body,
         user_id: req.user.id,
-        //user_id: req.decodedJwt.subject,
       };
       next();
     }

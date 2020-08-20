@@ -508,9 +508,13 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 </details>
 
 <details>
-<summary><b>GET - Get a list of user articles sorted by rank for a user with user role</b></summary>
+<summary><b>GET - Get a list of user articles sorted by rank for a user with user role</b>
+<br>
 <br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank</code>
+<br>
+<br>
+</summary>
 <br>
 <br>
 User access restricted endpoint. Token required.
@@ -549,11 +553,12 @@ When successful will return status code of 200 (OK), and the a list of articles,
 <details>
 <summary><b>GET - Get a list of user articles  by specific rank for a user with user role</b>
 <br>
+<br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank/:rankID</code>
+<br>
 <br>
 </summary>
-<br>
-<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank/:rankID</code>
+
 <br>
 <br>
 User access restricted endpoint. Token required.

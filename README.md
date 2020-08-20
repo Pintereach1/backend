@@ -72,7 +72,7 @@ When successful will return status code of 200 (OK), the new item object and a t
 <b>Endpoint:</b> <code>BaseURL/api/admin/users</code>
 <br>
 <br>
-Admin access endpoint. Token required.
+Admin access restricted endpoint. Token required.
 <br>
 <br>
 
@@ -170,7 +170,7 @@ When successful will return status code of 200 (OK), and the a list of articles:
 <b>Endpoint:</b> <code>BaseURL/api/users/:id</code>
 <br>
 <br>
-User access endpoint. Token required.
+User access restricted endpoint. Token required.
 <br>
 <br>
 
@@ -197,7 +197,7 @@ When successful will return status code of 200 (OK), and the a user profile info
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles</code>
 <br>
 <br>
-User access endpoint. Token required.
+User access restricted endpoint. Token required.
 <br>
 <br>
 
@@ -236,7 +236,7 @@ When successful will return status code of 200 (OK), and the a list of articles 
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/:articleID</code>
 <br>
 <br>
-User access endpoint. Token required.
+User access restricted endpoint. Token required.
 <br>
 <br>
 
@@ -255,6 +255,170 @@ When successful will return status code of 200 (OK), and the a user article with
         "rank_id": 4
     }
 ]
+```
+
+</details>
+
+<details>
+<summary><b>POST - Post a new user article for a user with user role</b></summary>
+<br>
+Endpoint: BaseURL/api/users/:id/articles
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+Requires an object with a title, description, link, category_id, and rank_id:
+
+```
+{
+    "title": "The New Power Article",
+      "description": "How to Build Article created by user2",
+      "link": "https://www.nature.com/articles/s41586-020-2665-2",
+      "category_id": 3,
+
+      "rank_id": 4
+
+}
+```
+
+When successful will return status code of 201 (CREATED), and new article object :
+
+```
+{
+    "id": 7,
+    "title": "The New Power Article",
+    "description": "How to Build Article created by user2",
+    "link": "https://www.nature.com/articles/s41586-020-2665-2",
+    "rank_id": 4,
+    "user_id": 2,
+    "category_id": 3
+}
+```
+
+</details>
+
+<details>
+<summary><b>PUT - Update an article for a user with user role</b></summary>
+<br>
+Endpoint: BaseURL/api/articles/:id
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+Requires an object with fildes that will be updated:
+
+```
+{
+    "title": "The New Power Article updated by user2",
+      "description": "How to Build Article updated by user2",
+      "link": "https://www.nature.com/articles/s41586-020-2665-2",
+      "category_id": 2,
+
+      "rank_id": 1
+
+}
+```
+
+When successful will return status code of 200 (OK), and an updated article object :
+
+```
+{
+    "id": 7,
+    "title": "The New Power Article updated by user2",
+    "description": "How to Build Article updated by user2",
+    "link": "https://www.nature.com/articles/s41586-020-2665-2",
+    "rank_id": 1,
+    "user_id": 2,
+    "category_id": 2
+}
+```
+
+</details>
+
+<details>
+<summary><b>DELETE - Delete an article by article's id</b></summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/articles/:id</code>
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+No body required in the request. 
+<br>
+<br>
+When successful will return an HTTP status code of 200 (OK) and an id of the deleted article. Here is an example:
+
+```
+{
+    7
+}
+```
+
+</details>
+
+<details>
+<summary><b>GET - Get a list of categories  users with user role</b></summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/categories</code>
+<br>
+<br>
+User access endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a list of categories:
+
+```
+[
+    {
+        "id": 1,
+        "category_name": "Research"
+    },
+    {
+        "id": 2,
+        "category_name": "Hypotheses"
+    },
+    {
+        "id": 3,
+        "category_name": "Commentaries"
+    },
+    {
+        "id": 4,
+        "category_name": "Psychology"
+    }
+]
+```
+
+</details>
+
+<details>
+<summary><b>POST - Post a new category for a user with user role</b></summary>
+<br>
+Endpoint: BaseURL/api/categories
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+Requires an object with a category_name:
+
+```
+{
+
+        "category_name": "Archaeology"
+    }
+```
+
+When successful will return status code of 201 (CREATED), and new category object :
+
+```
+{
+    "id": 7,
+    "category_name": "Archaeology"
+}
 ```
 
 </details>

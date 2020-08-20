@@ -473,3 +473,50 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 ```
 
 </details>
+
+### Table Entities
+
+Role Data
+
+| attribute | data type | required                |
+| --------- | --------- | ----------------------- |
+| id        | integer   | auto-assigns            |
+| role      | integer   | Yes, and must be unique |
+|           |           | 2 - by default to user  |
+
+User Data
+
+| attribute | data type | required                |
+| --------- | --------- | ----------------------- |
+| id        | integer   | auto-assigns            |
+| email     | string    | Yes, and must be unique |
+| password  | string    | Yes                     |
+| username  | string    | Yes, and must be unique |
+| name      | string    | Yes                     |
+| role      | integer   | No, default to user     |
+
+Rank Data
+
+| attribute | data type | required                |
+| --------- | --------- | ----------------------- |
+| id        | integer   | auto-assigns            |
+| rank      | integer   | Yes, and must be unique |
+
+Category Data
+
+| attribute     | data type | required                |
+| ------------- | --------- | ----------------------- |
+| id            | integer   | auto-assigns            |
+| category_name | string    | Yes, and must be unique |
+
+Article Data
+
+| attribute   | data type | required                |
+| ----------- | --------- | ----------------------- |
+| id          | integer   | auto-assigns            |
+| title       | string    | Yes, and must be unique |
+| description | string    | Yes                     |
+| link        | string    | Yes                     |
+| rank_id     | integer   | Yes                     |
+| user_id     | integer   | Yes                     |
+| category_id | integer   | Yes                     |

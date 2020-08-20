@@ -52,6 +52,12 @@ function findUserArticle(id, articleID) {
     .where("a.user_id", id)
     .where("a.id", articleID);
 }
+function findById(id) {
+  return db("users")
+    .where({ id })
+    .first()
+    .select("id", "username", "name", "email", "role");
+}
 
 async function add(user) {
   try {
@@ -83,24 +89,3 @@ function remove(id) {
 //   .del();
 // return totalDeleted;
 // const deletedArticle_Categories = await db("article_categories as ac").join("articles as a", "" ).where("user_id", id).del();
-
-// const deletedUserArticle_Categories = await db("article_category as ac")
-//   .join("articles as a", "ac.article_id", "a.id")
-//   .join("users as u", "u.id", "ac.article_id")
-
-//   .where("user_id", id)
-//   .del();
-//  const deletedUserArticles = await db("articles").where("user_id", id).del();
-// const deletedUser = await db("users").where("id", id).del();
-// return deletedUser;
-// return db("users")
-// .join("articles as a",)
-//   .where("id", id)
-//   .del()
-//   .then((deleted) => db("articles").where("user_id", id).del())
-//   .then((delRow) => (delRow > 0 ? id : null));
-//}
-
-function findById(id) {
-  return db("users").where({ id }).first();
-}

@@ -31,7 +31,6 @@ When successful will return status code of 201 (CREATED), the new user object an
         "username": "aaron",
         "name": "Aaron",
         "email": "aaron@gmail.com",
-        "password": "$2a$08$yOVH2s1SQF57YA2V/LKDO.JRO02qtifGTFrmC4ql0/ONNVxiGjLX.",
         "role": 1
     },
     "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijo1LCJ1c2VybmFtZSI6InVzZXI1Iiwicm9sZSI6MSwiaWF0IjoxNTk3ODc4OTQ2LCJleHAiOjE1OTc4ODYxNDZ9.OAJUXgX_fbQ8djZpFNBxw8ztyPi-FgvPrgv6DlgIILU"

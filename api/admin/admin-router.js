@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const Categories = require("../../database/helpers/categories-model.js");
+const Articles = require("../../database/helpers/articles-model.js");
 const Users = require("../../database/helpers/admin-model");
-//const checkUser = require("../../auth/check-user-middleware.js");
-//const checkRole = require("../../auth/check-role-middleware.js");
 
 //----------------ADMIN-------------------------
 router.get("/users", (req, res) => {
@@ -59,11 +58,21 @@ router.put(
       });
   }
 );
+
 //-----------------------DELETE CATEGORY-------------------------
 router.delete("/categories/:id", validateCategoryId, (req, res) => {
-  Categories.remove(req.category.id)
-    .then((category) => {
-      res.status(200).json(category);
+  Articles.findBy({ category_id: req.category.id })
+    .then((article) => {
+      if (article.length !== 0) {
+        res.send({
+          message:
+            "You can not remove this category, it is used in existing articles",
+        });
+      } else {
+        Categories.remove(req.category.id).then((category) => {
+          res.status(200).json(category);
+        });
+      }
     })
 
     .catch((error) => {

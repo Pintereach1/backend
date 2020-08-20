@@ -121,7 +121,7 @@ When successful will return status code of 200 (OK), and the a list of users:
 </details>
 
 <details>
-<summary><b>GET - Get a list of all articles of all users for a user with user role</b>
+<summary><b>GET - Get a list of all articles of all users for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/articles</code>
 <br>
 </summary>
@@ -171,7 +171,7 @@ When successful will return status code of 200 (OK), and the a list of articles:
 </details>
 
 <details>
-<summary><b>GET - Get a user profile information for a user with user role</b>
+<summary><b>GET - Get a user profile information for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id</code>
 <br>
 </summary>
@@ -198,7 +198,7 @@ When successful will return status code of 200 (OK), and the a user profile info
 </details>
 
 <details>
-<summary><b>PUT - Update a user profile for a user with user role</b>
+<summary><b>PUT - Update a user profile for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id</code>
 <br>
 </summary>
@@ -234,7 +234,7 @@ When successful will return status code of 200 (OK), and an updated user object 
 </details>
 
 <details>
-<summary><b>GET - Get a list of a user articles for a user with user role</b>
+<summary><b>GET - Get a list of a user articles for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles</code>
 <br>
 </summary>
@@ -274,7 +274,7 @@ When successful will return status code of 200 (OK), and the a list of articles 
 </details>
 
 <details>
-<summary><b>GET - Get a user article with specific id for a user with user role</b>
+<summary><b>GET - Get a user article with specific id for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/:articleID</code>
 <br>
 </summary>
@@ -304,7 +304,7 @@ When successful will return status code of 200 (OK), and the a user article with
 </details>
 
 <details>
-<summary><b>POST - Post a new user article for a user with user role</b>
+<summary><b>POST - Post a new user article for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles</code>
 <br>
 </summary>
@@ -344,7 +344,7 @@ When successful will return status code of 201 (CREATED), and new article object
 </details>
 
 <details>
-<summary><b>PUT - Update an article for a user with user role</b>
+<summary><b>PUT - Update an article for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/articles/:id</code>
 <br>
 </summary>
@@ -384,7 +384,7 @@ When successful will return status code of 200 (OK), and an updated article obje
 </details>
 
 <details>
-<summary><b>DELETE - Delete an article by article's id</b>
+<summary><b>DELETE - Delete an article by article's id</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/articles/:id</code>
 <br>
 </summary>
@@ -407,7 +407,7 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 </details>
 
 <details>
-<summary><b>GET - Get a list of categories  users with user role</b>
+<summary><b>GET - Get a list of categories  users with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/categories</code>
 <br>
 </summary>
@@ -443,7 +443,7 @@ When successful will return status code of 200 (OK), and the a list of categorie
 </details>
 
 <details>
-<summary><b>POST - Post a new category for a user with user role</b>
+<summary><b>POST - Post a new category for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/categories</code>
 <br>
 </summary>
@@ -473,7 +473,7 @@ When successful will return status code of 201 (CREATED), and new category objec
 </details>
 
 <details>
-<summary><b>PUT - Update a category for a user with admin role</b>
+<summary><b>PUT - Update a category for a user with admin role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/admin/categories/:id</code>
 <br>
 </summary>
@@ -503,7 +503,7 @@ When successful will return status code of 200 (OK), and an updated category obj
 </details>
 
 <details>
-<summary><b>DELETE - Delete a category by category's id</b>
+<summary><b>DELETE - Delete a category by category's id</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/admin/categories/:id</code>
 <br>
 </summary>
@@ -526,7 +526,7 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 </details>
 
 <details>
-<summary><b>GET - Get a list of user articles sorted by rank for a user with user role</b>
+<summary><b>GET - Get a list of user articles sorted by rank for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank</code>
 <br>
 </summary>
@@ -566,7 +566,7 @@ When successful will return status code of 200 (OK), and the a list of articles,
 </details>
 
 <details>
-<summary><b>GET - Get a list of user articles  by specific rank for a user with user role</b>
+<summary><b>GET - Get a list of user articles  by specific rank for a user with user role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/rank/:rankID</code>
 <br>
 </summary>

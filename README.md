@@ -7,7 +7,7 @@
 As a researcher, it's difficult to keep track of articles you want to read later. Pintereach helps you research by enabling you to save and organize articles in to categories to read later.
 
 <details>
-<summary><b>POST - Register a new user</b>
+<summary><b>POST - Register a new user</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/auth/register</code>
 <br>
 </summary>
@@ -44,7 +44,7 @@ When successful will return status code of 201 (CREATED), the new user object an
 </details>
 
 <details>
-<summary><b>POST - Login a user</b>
+<summary><b>POST - Login a user</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/auth/login</code>
 <br>
 </summary>
@@ -71,7 +71,7 @@ When successful will return status code of 200 (OK), the new item object and a t
 </details>
 
 <details>
-<summary><b>GET - Get a list of users for a user with admin role</b>
+<summary><b>GET - Get a list of users for a user with admin role</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/admin/users</code>
 <br>
 </summary>

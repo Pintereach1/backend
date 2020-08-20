@@ -18,7 +18,7 @@ Requires an object with a username, password, name, email - all string data type
     "password": "qwerty",
     "name": "Aaron",
     "email": "aaron@gmail.com",
-    "role": "1"
+    "role": 1
 }
 ```
 
@@ -67,7 +67,7 @@ When successful will return status code of 200 (OK), the new item object and a t
 </details>
 
 <details>
-<summary><b>GET - a list of users for a user with admin role</b></summary>
+<summary><b>GET - Get a list of users for a user with admin role</b></summary>
 <br>
 <b>Endpoint:</b> <code>BaseURL/api/admin/users</code>
 <br>
@@ -116,7 +116,7 @@ When successful will return status code of 200 (OK), and the a list of users:
 </details>
 
 <details>
-<summary><b>GET - a list of all articles of all users</b></summary>
+<summary><b>GET - Get a list of all articles of all users for a user with user role</b></summary>
 <br>
 <b>Endpoint:</b> <code>BaseURL/api/articles</code>
 <br>
@@ -163,3 +163,142 @@ When successful will return status code of 200 (OK), and the a list of articles:
 ```
 
 </details>
+
+<details>
+<summary><b>GET - Get a user profile information for a user with user role</b></summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id</code>
+<br>
+<br>
+User access endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a user profile information:
+
+```
+[
+    {
+        "id": 2,
+        "username": "user2",
+        "name": "Jane Cimegra",
+        "email": "jane@gmail.com",
+        "password": "qwerty",
+        "role": 2
+    }
+]
+```
+
+</details>
+
+<details>
+<summary><b>GET - Get a list of a user articles for a user with user role</b></summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles</code>
+<br>
+<br>
+User access endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a list of articles of a user with id:
+
+```
+[
+    {
+        "article_id": 2,
+        "user_id": 2,
+        "title": "Anticancer immune response",
+        "description": "Targeted glycan degradation potentiates the anticancer immune response in vivo",
+        "link": "https://www.nature.com/articles/s41589-020-0622-x",
+        "category_name": "Hypotheses",
+        "category_id": 2,
+        "rank_id": 4
+    },
+    {
+        "article_id": 4,
+        "user_id": 2,
+        "title": "SARS-CoV-2 spike proteins",
+        "description": "Structures and distributions of SARS-CoV-2 spike proteins on intact virions",
+        "link": "https://www.nature.com/articles/s41586-020-2665-2",
+        "category_name": "Research",
+        "category_id": 1,
+        "rank_id": 1
+    }
+]
+```
+
+</details>
+
+<details>
+<summary><b>GET - Get a user article with specific id for a user with user role</b></summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles/:articleID</code>
+<br>
+<br>
+User access endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a user article with articleID:
+
+```
+[
+    {
+        "article_id": 2,
+        "user_id": 2,
+        "title": "Anticancer immune response",
+        "description": "Targeted glycan degradation potentiates the anticancer immune response in vivo",
+        "link": "https://www.nature.com/articles/s41589-020-0622-x",
+        "category_name": "Hypotheses",
+        "category_id": 2,
+        "rank_id": 4
+    }
+]
+```
+
+</details>
+
+<details>
+<summary><b>POST - Post user article for a user with user role</b></summary>
+<br>
+<b>Endpoint:</b> <code>BaseURL/api/users/:id/articles</code>
+<br>
+User access endpoint. Token required.
+<br>
+Requires an object with a title, description, link, category_id, and rank_id:
+```
+{
+    "title": "The New Power Article",
+      "description": "How to Build Article created by user2",
+      "link": "https://www.nature.com/articles/s41586-020-2665-2",
+      "category_id": 3,
+
+      "rank_id": 4
+
+}
+
+```
+
+<br>
+
+<br>
+
+When successful will return status code of 201 (OK), and the a new article:
+
+```
+
+{
+"id": 7,
+"title": "The New Power Article",
+"description": "How to Build Article created by user2",
+"link": "https://www.nature.com/articles/s41586-020-2665-2",
+"rank_id": 4,
+"user_id": 2,
+"category_id": 3
+}
+
+```
+
+</details>
+```

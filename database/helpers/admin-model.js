@@ -54,7 +54,6 @@ function update(id, changes) {
     .then((count) => (count > 0 ? findById(id) : null));
 }
 function remove(id) {
-  console.log("i am here");
   return db("users")
     .where("id", id)
     .del()

@@ -60,6 +60,29 @@ router.put(
       });
   }
 );
+//-----------------------DELETE RANK-------------------------
+router.delete("/ranks/:id", validateRankId, (req, res) => {
+  Articles.findBy({ rank_id: req.rank.id })
+    .then((article) => {
+      if (article.length !== 0) {
+        res.send({
+          message:
+            "You can not remove this rank, it is used in existing articles",
+        });
+      } else {
+        Ranks.remove(req.rank.id).then((rank) => {
+          res.status(200).json(rank);
+        });
+      }
+    })
+
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({
+        message: "Error removing the rank",
+      });
+    });
+});
 
 //-----------------------DELETE CATEGORY-------------------------
 router.delete("/categories/:id", validateCategoryId, (req, res) => {
@@ -127,6 +150,21 @@ function validateUserId(req, res, next) {
         next();
       } else {
         res.status(400).json({ message: "invalid user id" });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ message: "failed", err });
+    });
+}
+function validateRankId(req, res, next) {
+  const { id } = req.params;
+  Ranks.findById(id)
+    .then((rank) => {
+      if (rank) {
+        req.rank = rank;
+        next();
+      } else {
+        res.status(400).json({ message: "invalid rank id" });
       }
     })
     .catch((err) => {

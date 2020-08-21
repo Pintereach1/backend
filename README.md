@@ -661,6 +661,29 @@ When successful will return status code of 201 (CREATED), and new rank object :
 
 </details>
 
+<details>
+<summary><b>DELETE - Delete a rank by rank's id for user with admin role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/admin/ranks/:id</code>
+<br>
+</summary>
+<br>
+<br>
+Admin access restricted endpoint. Token required.
+<br>
+<br>
+No body required in the request. Rank will be deleted if it is not exist in any articles.
+<br>
+<br>
+When successful will return an HTTP status code of 200 (OK) and an id of the deleted rank id. Here is an example:
+
+```
+{
+    7
+}
+```
+
+</details>
+
 ### Table Entities
 
 #### Role Data

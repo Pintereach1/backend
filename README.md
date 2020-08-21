@@ -2,6 +2,8 @@
 
 # Documentation for Pintereach API
 
+---
+
 <b>BaseURL:</b> https://pintereach1api.herokuapp.com
 
 As a researcher, it's difficult to keep track of articles you want to read later. Pintereach helps you research by enabling you to save and organize articles in to categories to read later.
@@ -22,8 +24,6 @@ As a researcher, it's difficult to keep track of articles you want to read later
 - [Supertest](https://www.npmjs.com/package/supertest) - A test module for HTTP assertions
 - [Jest](https://jestjs.io/) - A simple JavaScript testing framework
 - [Dotenv](https://www.npmjs.com/package/dotenv) - a zero-dependency module that loads environment variables from a .env file into process.env
-
----
 
 ## User endpoints
 
@@ -756,5 +756,3 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 | rank_id     | integer   | Yes                     |
 | user_id     | integer   | Yes                     |
 | category_id | integer   | Yes                     |
-
----

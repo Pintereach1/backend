@@ -121,9 +121,9 @@ When successful will return status code of 200 (OK), and the a list of users:
 </details>
 
 <details>
-<summary><b>GET - Get a list of all articles of all users for a user with user and admin roles</b><br>
-<b>Endpoint:</b> <code>BaseURL/api/articles</code><br>
-<b>Endpoint:</b> <code>BaseURL/api/admin/articles</code>
+<summary><b>GET - Get a list of all articles of all users for a user with user or admin roles</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/authusers/articles</code>
+
 <br>
 </summary>
 <br>
@@ -408,9 +408,8 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 </details>
 
 <details>
-<summary><b>GET - Get a list of categories  users with user and admin role</b><br>
-<b>Endpoint:</b> <code>BaseURL/api/categories</code><br>
-<b>Endpoint:</b> <code>BaseURL/api/admin/categories</code>
+<summary><b>GET - Get a list of categories  users with user or admin role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/authusers/categories</code>
 <br>
 </summary>
 <br>
@@ -598,9 +597,8 @@ When successful will return status code of 200 (OK), and the a list of articles 
 </details>
 
 <details>
-<summary><b>GET - Get a list of ranks  users with user and admin roles</b><br>
-<b>Endpoint:</b> <code>BaseURL/api/ranks</code><br>
-<b>Endpoint:</b> <code>BaseURL/api/admin/ranks</code>
+<summary><b>GET - Get a list of ranks  users with user or admin roles</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/authusers/ranks</code>
 <br>
 </summary>
 <br>

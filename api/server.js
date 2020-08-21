@@ -8,6 +8,7 @@ const articlesRouter = require("./articles/articles-router.js");
 const usersRouter = require("./users/users-router.js");
 const categoriesRouter = require("./categories/categories-router.js");
 const adminRouter = require("./admin/admin-router.js");
+const ranksRouter = require("./ranks/ranks-router.js");
 const checkRole = require("../auth/check-role-middleware");
 
 const server = express();
@@ -21,6 +22,7 @@ server.use("/api/admin", authenticate, checkRole(1), adminRouter);
 server.use("/api/users", authenticate, checkRole(2), usersRouter);
 server.use("/api/categories", authenticate, categoriesRouter);
 server.use("/api/articles", authenticate, checkRole(2), articlesRouter);
+server.use("/api/ranks", authenticate, checkRole(2), ranksRouter);
 
 server.get("/", (req, res) => {
   res

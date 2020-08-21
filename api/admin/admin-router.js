@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Categories = require("../../database/helpers/categories-model.js");
 const Articles = require("../../database/helpers/articles-model.js");
+const Ranks = require("../../database/helpers/ranks-model.js");
 const Users = require("../../database/helpers/admin-model");
 
 //----------------ADMIN-------------------------
@@ -26,6 +27,34 @@ router.delete("/users/:id", validateUserId, (req, res) => {
       console.log(error);
       res.status(500).json({
         message: "Error removing the user",
+      });
+    });
+});
+//----------------ARTICLES-----------------------------------
+//---------------GET ALL ARTICLES-----------------------------
+
+router.get("/articles", (req, res) => {
+  Articles.find()
+    .then((articles) => {
+      res.status(200).json(articles);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({
+        message: "Error retrieving the articles",
+      });
+    });
+});
+//---------------GET ALL RANKS-----------------------------
+router.get("/ranks", (req, res) => {
+  Ranks.find()
+    .then((ranks) => {
+      res.status(200).json(ranks);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({
+        message: "Error retrieving the ranks",
       });
     });
 });

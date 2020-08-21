@@ -23,6 +23,8 @@ As a researcher, it's difficult to keep track of articles you want to read later
 - [Jest](https://jestjs.io/) - A simple JavaScript testing framework
 - [Dotenv](https://www.npmjs.com/package/dotenv) - a zero-dependency module that loads environment variables from a .env file into process.env
 
+---
+
 <details>
 <summary><b>POST - Register a new user</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/auth/register</code>

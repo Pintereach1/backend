@@ -43,8 +43,6 @@ router.put("/:id", checkUser(), validateUserId, (req, res) => {
 //---------------GET ALL USER ARTICLES-----------------------------
 router.get("/:id/articles", checkUser(), validateUserId, (req, res) => {
   const { id } = req.params;
-  //const {  sortby = "id"} = req.query;
-
   Users.findUserArticles(id)
     .then((articles) => {
       res.status(200).json(articles);

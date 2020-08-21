@@ -408,8 +408,9 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 </details>
 
 <details>
-<summary><b>GET - Get a list of categories  users with user role</b><br>
-<b>Endpoint:</b> <code>BaseURL/api/categories</code>
+<summary><b>GET - Get a list of categories  users with user and admin role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/categories</code><br>
+<b>Endpoint:</b> <code>BaseURL/api/admin/categories</code>
 <br>
 </summary>
 <br>

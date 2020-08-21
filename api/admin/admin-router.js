@@ -59,6 +59,19 @@ router.get("/ranks", (req, res) => {
     });
 });
 //----------------CATEGORIES----------------------------------
+//---------------GET CATEGORIES-----------------------------
+router.get("/categories", (req, res) => {
+  Categories.find()
+    .then((categories) => {
+      res.status(200).json(categories);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json({
+        message: "Error retrieving the categories",
+      });
+    });
+});
 //-----------------------PUT-------------------------
 router.put(
   "/categories/:id",

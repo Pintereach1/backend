@@ -713,7 +713,7 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 
 #### Role Data
 
-| attribute | data type | required -                                              |
+| attribute | data type | required                                                |
 | --------- | --------- | ------------------------------------------------------- |
 | id        | integer   | auto-assigns                                            |
 | role      | integer   | Yes, and must be unique, 1-admin, 2-user, by default -2 |

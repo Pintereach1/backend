@@ -121,8 +121,9 @@ When successful will return status code of 200 (OK), and the a list of users:
 </details>
 
 <details>
-<summary><b>GET - Get a list of all articles of all users for a user with user role</b><br>
-<b>Endpoint:</b> <code>BaseURL/api/articles</code>
+<summary><b>GET - Get a list of all articles of all users for a user with user and admin roles</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/articles</code><br>
+<b>Endpoint:</b> <code>BaseURL/api/admin/articles</code>
 <br>
 </summary>
 <br>
@@ -407,8 +408,9 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 </details>
 
 <details>
-<summary><b>GET - Get a list of categories  users with user role</b><br>
-<b>Endpoint:</b> <code>BaseURL/api/categories</code>
+<summary><b>GET - Get a list of categories  users with user and admin role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/categories</code><br>
+<b>Endpoint:</b> <code>BaseURL/api/admin/categories</code>
 <br>
 </summary>
 <br>
@@ -591,6 +593,72 @@ When successful will return status code of 200 (OK), and the a list of articles 
         "category_id": 2
     }
 ]
+```
+
+</details>
+
+<details>
+<summary><b>GET - Get a list of ranks  users with user and admin roles</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/ranks</code><br>
+<b>Endpoint:</b> <code>BaseURL/api/admin/ranks</code>
+<br>
+</summary>
+<br>
+<br>
+User or admin access endpoint. Token required.
+<br>
+<br>
+
+When successful will return status code of 200 (OK), and the a list of ranks:
+
+```
+[
+    {
+        "id": 1,
+        "rank": 1
+    },
+    {
+        "id": 2,
+        "rank": 2
+    },
+    {
+        "id": 3,
+        "rank": 3
+    },
+    {
+        "id": 4,
+        "rank": 4
+    }
+
+]
+```
+
+</details>
+<details>
+<summary><b>POST - Post a new rank for a user with user role</b><br>
+<b>Endpoint:</b> <code>BaseURL/api/ranks</code>
+<br>
+</summary>
+<br>
+<br>
+User access restricted endpoint. Token required.
+<br>
+<br>
+Requires an object with a rank:
+
+```
+{
+    "rank": 5
+}
+```
+
+When successful will return status code of 201 (CREATED), and new rank object :
+
+```
+{
+    "id": 5,
+    "rank": 5
+}
 ```
 
 </details>

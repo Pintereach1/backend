@@ -25,6 +25,10 @@ As a researcher, it's difficult to keep track of articles you want to read later
 
 ---
 
+## User endpoints
+
+---
+
 <details>
 <summary><b>POST - Register a new user</b><br>
 <b>Endpoint:</b> <code>BaseURL/api/auth/register</code>
@@ -703,16 +707,20 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 
 </details>
 
-### Table Entities
+---
 
-#### Role Data
+## Table Entities
+
+---
+
+### Role Data
 
 | attribute | data type | required -                                              |
 | --------- | --------- | ------------------------------------------------------- |
 | id        | integer   | auto-assigns                                            |
 | role      | integer   | Yes, and must be unique, 1-admin, 2-user, by default -2 |
 
-#### User Data
+### User Data
 
 | attribute | data type | required                |
 | --------- | --------- | ----------------------- |
@@ -723,21 +731,21 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 | name      | string    | Yes                     |
 | role      | integer   | No, default to user     |
 
-#### Rank Data
+### Rank Data
 
 | attribute | data type | required                |
 | --------- | --------- | ----------------------- |
 | id        | integer   | auto-assigns            |
 | rank      | integer   | Yes, and must be unique |
 
-#### Category Data
+### Category Data
 
 | attribute     | data type | required                |
 | ------------- | --------- | ----------------------- |
 | id            | integer   | auto-assigns            |
 | category_name | string    | Yes, and must be unique |
 
-#### Article Data
+### Article Data
 
 | attribute   | data type | required                |
 | ----------- | --------- | ----------------------- |
@@ -748,3 +756,5 @@ When successful will return an HTTP status code of 200 (OK) and an id of the del
 | rank_id     | integer   | Yes                     |
 | user_id     | integer   | Yes                     |
 | category_id | integer   | Yes                     |
+
+---

@@ -11,7 +11,9 @@ module.exports = {
 };
 
 function find() {
-  return db("users").select("id", "username", "name", "email").orderBy("id");
+  return db("users")
+    .select("id", "username", "name", "email", "role")
+    .orderBy("id");
 }
 
 function findBy(filter) {

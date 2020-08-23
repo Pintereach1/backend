@@ -112,31 +112,36 @@ When successful will return status code of 200 (OK), and the a list of users:
         "id": 1,
         "username": "user1",
         "name": "John Doe",
-        "email": "john@gmail.com"
+        "email": "john@gmail.com",
+        "role": 2
     },
     {
         "id": 2,
         "username": "user2",
         "name": "Jane Cimegra",
-        "email": "jane@gmail.com"
+        "email": "jane@gmail.com",
+        "role": 2
     },
     {
         "id": 3,
         "username": "user3",
         "name": "Robbin Wilson",
-        "email": "robbin@gmail.com"
+        "email": "robbin@gmail.com",
+        "role": 2
     },
     {
         "id": 4,
         "username": "user4",
         "name": "Jack Dirreban",
-        "email": "jack@gmail.com"
+        "email": "jack@gmail.com",
+        "role": 1
     },
     {
-        "id": 5,
-        "username": "aaron",
-        "name": "Aaron",
-        "email": "aaron@gmail.com"
+        "id": 6,
+        "username": "user51",
+        "name": "Masha1",
+        "email": "mash1a@gmail.com",
+        "role": 2
     }
 ]
 ```
@@ -160,34 +165,59 @@ When successful will return status code of 200 (OK), and the a list of articles:
 ```
 [
     {
-        "id": 1,
+        "article_id": 1,
+        "user_id": 1,
+        "username": "user1",
         "title": "Microbial OmcZ nanowires",
         "description": "Electric field stimulates production of highly conductive microbial OmcZ nanowires",
-        "link": "https://www.nature.com/articles/s41589-020-0623-9"
+        "link": "https://www.nature.com/articles/s41589-020-0623-9",
+        "category_name": "Research",
+        "category_id": 1,
+        "rank_id": 2
     },
     {
-        "id": 2,
+        "article_id": 2,
+        "user_id": 2,
+        "username": "user2",
         "title": "Anticancer immune response",
         "description": "Targeted glycan degradation potentiates the anticancer immune response in vivo",
-        "link": "https://www.nature.com/articles/s41589-020-0622-x"
+        "link": "https://www.nature.com/articles/s41589-020-0622-x",
+        "category_name": "Hypotheses",
+        "category_id": 2,
+        "rank_id": 4
     },
     {
-        "id": 3,
+        "article_id": 3,
+        "user_id": 3,
+        "username": "user3",
         "title": "New Habit",
         "description": "How Long Does it Actually Take to Form a New Habit? (Backed by Science)",
-        "link": "https://jamesclear.com/new-habit"
+        "link": "https://jamesclear.com/new-habit",
+        "category_name": "Psychology",
+        "category_id": 4,
+        "rank_id": 1
     },
     {
-        "id": 4,
+        "article_id": 4,
+        "user_id": 2,
+        "username": "user2",
         "title": "SARS-CoV-2 spike proteins",
         "description": "Structures and distributions of SARS-CoV-2 spike proteins on intact virions",
-        "link": "https://www.nature.com/articles/s41586-020-2665-2"
+        "link": "https://www.nature.com/articles/s41586-020-2665-2",
+        "category_name": "Research",
+        "category_id": 1,
+        "rank_id": 1
     },
     {
-        "id": 5,
+        "article_id": 5,
+        "user_id": 3,
+        "username": "user3",
         "title": "The Power of Synaptic Pruning",
         "description": "How to Build New Habits by Taking Advantage of Old Ones",
-        "link": "https://www.nature.com/articles/s41586-020-2665-2"
+        "link": "https://www.nature.com/articles/s41586-020-2665-2",
+        "category_name": "Psychology",
+        "category_id": 4,
+        "rank_id": 2
     }
 ]
 ```

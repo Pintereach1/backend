@@ -8,19 +8,37 @@ module.exports = {
   update,
   remove,
   findByRankId,
+  findArticles,
 };
 
 function find() {
-  return db("articles")
+  return db("articles as a")
     .select(
       "id",
       "title",
       "description",
       "link",
-      "user_id as user_id",
-      "rank_id as rank_id"
+      "category_id"
+      // "user_id as user_id",
+      // "rank_id as rank_id"
     )
     .orderBy("id");
+}
+function findArticles() {
+  return db("users as u")
+    .join("articles as a", "u.id", "a.user_id")
+    .join("categories as c", "c.id", "a.category_id")
+    .select(
+      "a.id as article_id",
+      "u.id as user_id",
+      "u.username",
+      "a.title",
+      "a.description",
+      "a.link",
+      "c.category_name",
+      "a.category_id",
+      "a.rank_id"
+    );
 }
 
 function findBy(filter) {

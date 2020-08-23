@@ -7,7 +7,8 @@ const Users = require("../../database/helpers/admin-model");
 //---------------GET ALL ARTICLES-----------------------------
 
 router.get("/articles", (req, res) => {
-  Articles.find()
+  //Articles.find()
+  Articles.findArticles()
     .then((articles) => {
       res.status(200).json(articles);
     })

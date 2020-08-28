@@ -31,11 +31,13 @@ describe("users-router.js", () => {
   let login = {};
   beforeEach(async () => {
     await db("users").truncate();
-    reg = await request(server).post("/api/auth/register").send(user);
-    login = await request(server).post("/api/auth/login").send(user);
+    // reg = await request(server).post("/api/auth/register").send(user);
+    // login = await request(server).post("/api/auth/login").send(user);
   });
   describe("GET api/users/:id", () => {
     it("should return 200 OK", async () => {
+      reg = await request(server).post("/api/auth/register").send(user);
+      login = await request(server).post("/api/auth/login").send(user);
       const resUsers = await request(server)
         .get("/api/users/1")
         .set("authorization", login.body.jwt_token);
@@ -47,6 +49,8 @@ describe("users-router.js", () => {
   });
   describe("PUT api/users/:id", () => {
     it("should return 200 OK", async () => {
+      reg = await request(server).post("/api/auth/register").send(user);
+      login = await request(server).post("/api/auth/login").send(user);
       const resUsers = await request(server)
         .put("/api/users/1")
         .send(updatedUser)
@@ -57,6 +61,8 @@ describe("users-router.js", () => {
   });
   describe("POST api/users/:id/articles", () => {
     it("should return 201 OK", async () => {
+      reg = await request(server).post("/api/auth/register").send(user);
+      login = await request(server).post("/api/auth/login").send(user);
       const resArticles = await request(server)
         .post("/api/users/1/articles")
         .send(article)

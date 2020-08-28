@@ -45,12 +45,21 @@ function findBy(filter) {
   return db("articles").where(filter).orderBy("id");
 }
 
-function add(article) {
-  return db("articles")
-    .insert(article)
-    .then((ids) => {
-      return findById(ids[0]);
-    });
+// function add(article) {
+//   return db("articles")
+//     .insert(article)
+//     .then((ids) => {
+//       return findById(ids[0]);
+//     });
+// }
+async function add(article) {
+  try {
+    const [id] = await db("articles").insert(article, "id");
+
+    return findById(id);
+  } catch (error) {
+    throw error;
+  }
 }
 
 function findById(id) {
